@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gymbroappv4/views/curl_view.dart';
 import 'package:gymbroappv4/views/pose_detection_view.dart';
+import 'package:gymbroappv4/views/pressm_view.dart';
 import 'package:gymbroappv4/views/push_view.dart';
 import 'package:lottie/lottie.dart';
 
@@ -63,7 +65,7 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                      MaterialPageRoute(builder: (_) => CurlView()),
                     );
                   },
                   child: Text('Curl de biceps',
@@ -74,7 +76,7 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                      MaterialPageRoute(builder: (_) => PressMView()),
                     );
                   },
                   child: Text('Press militar',

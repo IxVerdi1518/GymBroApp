@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gymbroappv4/views/pose_detection_view.dart';
 
-class PushView extends StatelessWidget {
-  const PushView({super.key});
+class PressMView extends StatelessWidget {
+  const PressMView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class PushView extends StatelessWidget {
                   width: size.width * 0.5,
                   height: size.width * 0.5,
                   child:
-                      Image(image: AssetImage('assets/close-grip-push-up.gif'),)
+                      Image(image: AssetImage('assets/military-press.gif'),)
                 ),
-                const Text('Push up!',
+                const Text('Press militar!',
                     style: TextStyle(
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
@@ -42,25 +42,31 @@ class PushView extends StatelessWidget {
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('1. Acuéstese boca abajo en el suelo con las manos ligeramente más anchas que el ancho de los hombros.',
+                  child: const Text('1. Comience con la barra ligeramente por debajo del nivel del pecho.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('2. Levante el cuerpo del suelo extendiendo los brazos con el cuerpo recto.',
+                  child: const Text('2. Con los brazos a la altura de los hombros, saque la barra y dé un paso hacia atrás.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('3. Manteniendo el cuerpo recto, bájelo hasta el suelo doblando los brazos. Empuje el cuerpo hacia arriba hasta que los brazos estén extendidos.',
+                  child: const Text('3. Flexionando los glúteos y manteniendo el core tenso, empuja la barra hacia arriba por encima de la cabeza mientras exhalas. Asegúrese de que las rodillas permanezcan fijas en su lugar.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('4. Repita para las repeticiones.',
+                  child: const Text('4. Baje la barra hacia la posición inicial mientras inhala.',
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
+                ),
+                Container(
+                  width: size.width * 0.7,
+                  child: const Text('5. Repita para las repeticiones.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),

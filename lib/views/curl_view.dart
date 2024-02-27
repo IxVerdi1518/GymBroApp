@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gymbroappv4/views/pose_detection_view.dart';
 
-class PushView extends StatelessWidget {
-  const PushView({super.key});
+class CurlView extends StatelessWidget {
+  const CurlView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class PushView extends StatelessWidget {
                   width: size.width * 0.5,
                   height: size.width * 0.5,
                   child:
-                      Image(image: AssetImage('assets/close-grip-push-up.gif'),)
+                      Image(image: AssetImage('assets/dumbbell-bicep-curl.gif'),)
                 ),
-                const Text('Push up!',
+                const Text('Curl de biceps!',
                     style: TextStyle(
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
@@ -42,25 +42,19 @@ class PushView extends StatelessWidget {
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('1. Acuéstese boca abajo en el suelo con las manos ligeramente más anchas que el ancho de los hombros.',
+                  child: const Text('1. De pie con una mancuerna en cada mano y los codos tocando los costados del torso.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('2. Levante el cuerpo del suelo extendiendo los brazos con el cuerpo recto.',
+                  child: const Text('2. Manteniendo inmóvil la parte superior del brazo, doble el peso correcto con la palma hacia adelante. Levanta la mancuerna hacia el hombro hasta que el bíceps esté completamente contraído. Mantén esta posición por un segundo y aprieta el bíceps.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('3. Manteniendo el cuerpo recto, bájelo hasta el suelo doblando los brazos. Empuje el cuerpo hacia arriba hasta que los brazos estén extendidos.',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
-                ),
-                Container(
-                  width: size.width * 0.7,
-                  child: const Text('4. Repita para las repeticiones.',
+                  child: const Text('3. Baja las mancuernas y repite el mismo movimiento con ambos brazos.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
