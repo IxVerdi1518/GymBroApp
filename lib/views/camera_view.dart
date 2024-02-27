@@ -215,6 +215,7 @@ class _CameraViewState extends State<CameraView> {
             child: Icon(
               Icons.arrow_back_ios_outlined,
               size: 20,
+              color: Colors.white,
             ),
           ),
         ),
@@ -233,6 +234,7 @@ class _CameraViewState extends State<CameraView> {
             child: Icon(
               Icons.photo_library_outlined,
               size: 25,
+              color: Colors.white,
             ),
           ),
         ),
@@ -253,6 +255,7 @@ class _CameraViewState extends State<CameraView> {
                   ? Icons.flip_camera_ios_outlined
                   : Icons.flip_camera_android_outlined,
               size: 25,
+              color: Colors.white,
             ),
           ),
         ),
