@@ -68,6 +68,17 @@ class SplashScreen extends StatelessWidget {
                   child: Text('Curl de biceps',
                       style: TextStyle(color: Colors.white)),
                 ),
+                ElevatedButton(
+                  style: raiseButtonStyle,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                    );
+                  },
+                  child: Text('Press militar',
+                      style: TextStyle(color: Colors.white)),
+                ),
                 SizedBox(
                   height: size.height * 0.03,
                 )

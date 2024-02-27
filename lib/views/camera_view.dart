@@ -52,6 +52,12 @@ class _CameraViewState extends State<CameraView> {
   PoseLandmark? p4;
   PoseLandmark? p5;
   PoseLandmark? p6;
+  PoseLandmark? p7;
+  PoseLandmark? p8;
+  PoseLandmark? p9;
+  PoseLandmark? p10;
+  PoseLandmark? p11;
+  PoseLandmark? p12;
 
   @override
   void initState() {
@@ -92,19 +98,29 @@ class _CameraViewState extends State<CameraView> {
         p4 = getPoseLandmark(PoseLandmarkType.leftShoulder);
         p5 = getPoseLandmark(PoseLandmarkType.leftElbow);
         p6 = getPoseLandmark(PoseLandmarkType.leftWrist);
+        p7 = getPoseLandmark(PoseLandmarkType.rightHip);
+        p8 = getPoseLandmark(PoseLandmarkType.rightKnee);
+        p9 = getPoseLandmark(PoseLandmarkType.rightHeel);
+        p10 = getPoseLandmark(PoseLandmarkType.leftHip);
+        p11 = getPoseLandmark(PoseLandmarkType.leftKnee);
+        p12 = getPoseLandmark(PoseLandmarkType.leftHeel);
       }
 
       //verificar
-      if (p1 != null && p2 != null && p3 != null && p4 != null && p5 != null && p6 != null) {
+      if (p1 != null && p2 != null && p3 != null && p4 != null && p5 != null && p6 != null && p7 != null && p8 != null && p9 != null && p10 != null && p11 != null && p12 != null) {
         final rtaAngle = utils.angle(p1!, p2!, p3!);
         final ltaAngle = utils.angle(p4!, p5!, p6!);
+        final rtaTAngle = utils.angle(p2!, p1!, p7!);
+        final ltaTAngle = utils.angle(p5!, p4!, p10!);
         final rtaP = utils.isPushUp(rtaAngle, bloc.state);
         final ltaP = utils.isPushUp(ltaAngle, bloc.state);
         final rtaC = utils.isCurlhUp(rtaAngle, bloc.state);
         final ltaC = utils.isCurlhUp(ltaAngle, bloc.state);
+        final rtaPr = utils.isPresshUp(rtaTAngle, bloc.state);
+        final ltaPr = utils.isPresshUp(ltaTAngle, bloc.state);
         print('Angulo: ${rtaAngle.toStringAsFixed(2)}');
         print('Angulo: ${ltaAngle.toStringAsFixed(2)}');
-        if ((rtaP != null && ltaP != null)&&(rtaC != null && ltaC != null)) {
+        if (rtaP != null && ltaP != null) {
           if (rtaP == ExcersiceState.init && ltaP == ExcersiceState.init) {
             bloc.setExcersiceState(rtaP);
             bloc.setExcersiceState(ltaP);
@@ -113,7 +129,26 @@ class _CameraViewState extends State<CameraView> {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
           }
+        }else if(rtaC != null && ltaC != null){
+          if (rtaC == ExcersiceState.init && ltaC == ExcersiceState.init) {
+            bloc.setExcersiceState(rtaC);
+            bloc.setExcersiceState(ltaC);
+          } else if (rtaC == ExcersiceState.complete &&
+              ltaC == ExcersiceState.complete) {
+            bloc.increment();
+            bloc.setExcersiceState(ExcersiceState.neutral);
+          }
+        }else if(rtaPr != null && ltaPr != null){
+          if (rtaPr == ExcersiceState.init && ltaPr == ExcersiceState.init) {
+            bloc.setExcersiceState(rtaPr);
+            bloc.setExcersiceState(ltaPr);
+          } else if (rtaPr == ExcersiceState.complete &&
+              ltaPr == ExcersiceState.complete) {
+            bloc.increment();
+            bloc.setExcersiceState(ExcersiceState.neutral);
+          }
         }
+
       }
     }
     super.didUpdateWidget(oldWidget);

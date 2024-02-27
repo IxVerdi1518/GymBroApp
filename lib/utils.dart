@@ -64,3 +64,18 @@ ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
     return ExcersiceState.complete;
   }
 }
+
+ExcersiceState? isPresshUp(double angleElBow, ExcersiceState current) {
+  final umbralElShoulder = 60.0;
+  final umbralElShoulderExt = 160.0;
+  if (current == ExcersiceState.neutral &&
+      angleElBow > umbralElShoulderExt &&
+      angleElBow < 180.0) {
+    return ExcersiceState.init;
+  } else if (current == ExcersiceState.init &&
+      angleElBow < umbralElShoulder &&
+      angleElBow > 40.0) {
+    return ExcersiceState.complete;
+  }
+}
+
