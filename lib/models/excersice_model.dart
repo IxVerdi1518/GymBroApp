@@ -1,4 +1,6 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:soundpool/soundpool.dart';
 
 enum ExcersiceState{
   neutral,
@@ -16,11 +18,22 @@ class ExcersiceCounter extends Cubit<ExcersiceState>{
 
   void increment(){
     counter++;
+    _sound();
     emit(state);
+    
   }
 
   void reset(){
     counter = 0;
     emit(state);
+  }
+  
+  Future<void> _sound() async {
+    Soundpool pool = Soundpool(streamType: StreamType.notification);
+
+    int soundId = await rootBundle.load("assets/Message 2.wav").then((ByteData soundData) {
+                  return pool.load(soundData);
+                });
+    int streamId = await pool.play(soundId);
   }
 }
