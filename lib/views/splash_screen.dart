@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gymbroappv4/views/pose_detection_view.dart';
+import 'package:gymbroappv4/views/curl_view.dart';
+import 'package:gymbroappv4/views/pressm_view.dart';
+import 'package:gymbroappv4/views/push_view.dart';
+import 'package:gymbroappv4/views/squat_view.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -26,12 +29,12 @@ class SplashScreen extends StatelessWidget {
                   height: size.height * 0.15,
                 ),
                 Container(
-                    alignment: Alignment.center,
-                    width: size.width * 0.7,
-                    height: size.width * 0.7,
-                    child: Lottie.asset('assets/gymbrologo.json',
-                        fit: BoxFit.cover),
-                        ),
+                  alignment: Alignment.center,
+                  width: size.width * 0.7,
+                  height: size.width * 0.7,
+                  child:
+                      Lottie.asset('assets/gymbrologo.json', fit: BoxFit.cover),
+                ),
                 SizedBox(
                   height: 40,
                 ),
@@ -52,7 +55,7 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                      MaterialPageRoute(builder: (_) => PushView()),
                     );
                   },
                   child: Text('Push Up', style: TextStyle(color: Colors.white)),
@@ -62,10 +65,32 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                      MaterialPageRoute(builder: (_) => CurlView()),
                     );
                   },
                   child: Text('Curl de biceps',
+                      style: TextStyle(color: Colors.white)),
+                ),
+                ElevatedButton(
+                  style: raiseButtonStyle,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => PressMView()),
+                    );
+                  },
+                  child: Text('Press militar',
+                      style: TextStyle(color: Colors.white)),
+                ),
+                ElevatedButton(
+                  style: raiseButtonStyle,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SquatView()),
+                    );
+                  },
+                  child: Text('Sentadilla',
                       style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(
