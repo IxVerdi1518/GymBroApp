@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gymbroappv4/views/pose_detection_view.dart';
+import 'package:gymbroappv4/views/pose_detection_view_press.dart';
+
 
 class PressMView extends StatelessWidget {
   const PressMView({super.key});
@@ -76,7 +77,7 @@ class PressMView extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                      MaterialPageRoute(builder: (_) => PoseDetectorViewPress()),
                     );
                   },
                   child: Text('Entrenar!', style: TextStyle(color: Colors.white)),

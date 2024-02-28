@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymbroappv4/models/excersice_model.dart';
 import 'package:gymbroappv4/views/splash_screen.dart';
 
-import 'views/pose_detection_view.dart';
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -19,44 +17,6 @@ class MyApp extends StatelessWidget {
         home: SplashScreen()
       ),
     );
-  }
-}
-
-
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Google ML Kit Demo App'),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  ExpansionTile(
-                    title: const Text('Vision APIs'),
-                    children: [
-                      CustomCard('Push Up', PoseDetectorView()),
-                      CustomCard('Curl', PoseDetectorView()),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-    
   }
 }
 

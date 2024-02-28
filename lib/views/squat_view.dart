@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gymbroappv4/views/pose_detection_view_push.dart';
+import 'package:gymbroappv4/views/pose_detection_view_squat.dart';
 
-class PushView extends StatelessWidget {
-  const PushView({super.key});
+class SquatView extends StatelessWidget {
+  const SquatView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class PushView extends StatelessWidget {
                   width: size.width * 0.5,
                   height: size.width * 0.5,
                   child:
-                      Image(image: AssetImage('assets/close-grip-push-up.gif'),)
+                      Image(image: AssetImage('assets/barbell-full-squat.gif'),)
                 ),
-                const Text('Push up!',
+                const Text('Sentadilla!',
                     style: TextStyle(
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
@@ -42,25 +42,25 @@ class PushView extends StatelessWidget {
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('1. Acuéstese boca abajo en el suelo con las manos ligeramente más anchas que el ancho de los hombros.',
+                  child: const Text('1. Coloque la barra entre los trapecios y la parte superior de la espalda, con las manos separadas a la altura de los hombros.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('2. Levante el cuerpo del suelo extendiendo los brazos con el cuerpo recto.',
+                  child: const Text('2. Separe los pies a la altura de los hombros y descienda con la espalda recta y viendo al frente.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('3. Manteniendo el cuerpo recto, bájelo hasta el suelo doblando los brazos. Empuje el cuerpo hacia arriba hasta que los brazos estén extendidos.',
+                  child: const Text('3. Mantenga la cabeza en posición neutra, la espalda y la columna en posición recta y neutra, el core flexionado y las rodillas ligeramente empujadas hacia afuera',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
                 Container(
                   width: size.width * 0.7,
-                  child: const Text('4. Repita para las repeticiones.',
+                  child: const Text('4. Desciende hasta el fondo donde los muslos queden paralelos al suelo. Y luego incorporate como si empujaras el piso.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
@@ -70,7 +70,7 @@ class PushView extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorViewPush()),
+                      MaterialPageRoute(builder: (_) => PoseDetectorViewSquat()),
                     );
                   },
                   child: Text('Entrenar!', style: TextStyle(color: Colors.white)),

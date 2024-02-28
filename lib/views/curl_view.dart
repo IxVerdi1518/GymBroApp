@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymbroappv4/views/pose_detection_view.dart';
+import 'package:gymbroappv4/views/pose_detection_view_curl.dart';
 
 class CurlView extends StatelessWidget {
   const CurlView({super.key});
@@ -64,7 +64,7 @@ class CurlView extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => PoseDetectorView()),
+                      MaterialPageRoute(builder: (_) => PoseDetectorViewCurl()),
                     );
                   },
                   child: Text('Entrenar!', style: TextStyle(color: Colors.white)),
