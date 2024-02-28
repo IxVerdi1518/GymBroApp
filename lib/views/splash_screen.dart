@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gymbroappv4/views/curl_view.dart';
-import 'package:gymbroappv4/views/pose_detection_view.dart';
 import 'package:gymbroappv4/views/pressm_view.dart';
 import 'package:gymbroappv4/views/push_view.dart';
+import 'package:gymbroappv4/views/squat_view.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -80,6 +80,17 @@ class SplashScreen extends StatelessWidget {
                     );
                   },
                   child: Text('Press militar',
+                      style: TextStyle(color: Colors.white)),
+                ),
+                ElevatedButton(
+                  style: raiseButtonStyle,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SquatView()),
+                    );
+                  },
+                  child: Text('Sentadilla',
                       style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(

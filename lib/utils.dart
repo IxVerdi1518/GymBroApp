@@ -38,7 +38,7 @@ double angle(PoseLandmark firstLandmark, PoseLandmark midLandmark,
 }
 
 ExcersiceState? isPushUp(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 60.0;
+  final umbralElBow = 70.0;
   final umbralElBowExt = 160.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElBowExt &&
@@ -79,3 +79,16 @@ ExcersiceState? isPresshUp(double angleElBow, ExcersiceState current) {
   }
 }
 
+ExcersiceState? isSquatDown(double angleElKnee, ExcersiceState current) {
+  final umbralElKnee = 75.0;
+  final umbralElKneeExt = 160.0;
+  if (current == ExcersiceState.neutral &&
+      angleElKnee > umbralElKneeExt &&
+      angleElKnee < 180.0) {
+    return ExcersiceState.init;
+  } else if (current == ExcersiceState.init &&
+      angleElKnee < umbralElKnee &&
+      angleElKnee > 40.0) {
+    return ExcersiceState.complete;
+  }
+}

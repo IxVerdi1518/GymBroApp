@@ -2,16 +2,16 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_pose_detection/google_mlkit_pose_detection.dart';
+import 'package:gymbroappv4/views/detector_view_squat.dart';
 
 import '../painters/pose_painter.dart';
-import 'detector_view.dart';
 
-class PoseDetectorView extends StatefulWidget {
+class PoseDetectorViewSquat extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _PoseDetectorViewState();
 }
 
-class _PoseDetectorViewState extends State<PoseDetectorView> {
+class _PoseDetectorViewState extends State<PoseDetectorViewSquat> {
   final PoseDetector _poseDetector =
       PoseDetector(options: PoseDetectorOptions());
   bool _canProcess = true;
@@ -30,7 +30,7 @@ class _PoseDetectorViewState extends State<PoseDetectorView> {
 
   @override
   Widget build(BuildContext context) {
-    return DetectorView(
+    return DetectorViewSquat(
       posePainter: _posePainter,
       title: 'Pose Detector',
       customPaint: _customPaint,
