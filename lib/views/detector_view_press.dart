@@ -2,13 +2,12 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:gymbroappv4/painters/pose_painter.dart';
-
-import 'camera_view.dart';
+import 'package:gymbroappv4/views/camera_view_press.dart';
 
 enum DetectorViewMode { liveFeed, gallery }
 
-class DetectorView extends StatefulWidget {
-  DetectorView({
+class DetectorViewPress extends StatefulWidget {
+  DetectorViewPress({
     Key? key,
     required this.posePainter,
     required this.title,
@@ -34,10 +33,10 @@ class DetectorView extends StatefulWidget {
   final CameraLensDirection initialCameraLensDirection;
 
   @override
-  State<DetectorView> createState() => _DetectorViewState();
+  State<DetectorViewPress> createState() => _DetectorViewState();
 }
 
-class _DetectorViewState extends State<DetectorView> {
+class _DetectorViewState extends State<DetectorViewPress> {
   late DetectorViewMode _mode;
 
   @override
@@ -48,7 +47,7 @@ class _DetectorViewState extends State<DetectorView> {
 
   @override
   Widget build(BuildContext context) {
-    return  CameraView(
+    return  CameraViewPress(
             posePainter: widget.posePainter,
             customPaint: widget.customPaint,
             onImage: widget.onImage,

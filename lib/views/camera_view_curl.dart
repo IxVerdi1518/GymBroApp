@@ -10,8 +10,8 @@ import 'package:gymbroappv4/models/excersice_model.dart';
 import 'package:gymbroappv4/painters/pose_painter.dart';
 import 'package:gymbroappv4/utils.dart' as utils;
 
-class CameraView extends StatefulWidget {
-  CameraView(
+class CameraViewCurl extends StatefulWidget {
+  CameraViewCurl(
       {Key? key,
       required this.customPaint,
       required this.onImage,
@@ -31,10 +31,10 @@ class CameraView extends StatefulWidget {
   final CameraLensDirection initialCameraLensDirection;
 
   @override
-  State<CameraView> createState() => _CameraViewState();
+  State<CameraViewCurl> createState() => _CameraViewState();
 }
 
-class _CameraViewState extends State<CameraView> {
+class _CameraViewState extends State<CameraViewCurl> {
   static List<CameraDescription> _cameras = [];
   CameraController? _controller;
   int _cameraIndex = -1;
@@ -82,7 +82,7 @@ class _CameraViewState extends State<CameraView> {
   }
 
   @override
-  void didUpdateWidget(covariant CameraView oldWidget) {
+  void didUpdateWidget(covariant CameraViewCurl oldWidget) {
     if (widget.customPaint != oldWidget.customPaint) {
       if (widget.customPaint == null) return;
       final bloc = BlocProvider.of<ExcersiceCounter>(context);
@@ -107,33 +107,28 @@ class _CameraViewState extends State<CameraView> {
       }
 
       //verificar
-      if (p1 != null && p2 != null && p3 != null && p4 != null && p5 != null && p6 != null && p7 != null && p8 != null && p9 != null && p10 != null && p11 != null && p12 != null) {
-        final rtaAngle = utils.angle(p1!, p2!, p3!);
-        final ltaAngle = utils.angle(p4!, p5!, p6!);
-        final rtaTAngle = utils.angle(p2!, p1!, p7!);
-        final ltaTAngle = utils.angle(p5!, p4!, p10!);
-        final rtSAngle = utils.angle(p7!, p8!, p9!);
-        final ltSAngle = utils.angle(p10!, p11!, p12!);
-        final rtaP = utils.isPushUp(rtaAngle, bloc.state);
-        final ltaP = utils.isPushUp(ltaAngle, bloc.state);
-        final rtaC = utils.isCurlhUp(rtaAngle, bloc.state);
-        final ltaC = utils.isCurlhUp(ltaAngle, bloc.state);
-        final rtaPr = utils.isPresshUp(rtaTAngle, bloc.state);
-        final ltaPr = utils.isPresshUp(ltaTAngle, bloc.state);
-        final rtaS = utils.isSquatDown(rtSAngle, bloc.state);
-        final ltaS = utils.isSquatDown(ltSAngle, bloc.state);
-        print('Angulo: ${rtaAngle.toStringAsFixed(2)}');
-        print('Angulo: ${ltaAngle.toStringAsFixed(2)}');
-        if (rtaP != null && ltaP != null) {
+      if (p1 != null && p2 != null && p3 != null && p4 != null && p5 != null && p6 != null) {
+        final rtaCAngle = utils.angle(p1!, p2!, p3!);
+        final ltaCAngle = utils.angle(p4!, p5!, p6!);
+
+
+        final rtaC = utils.isCurlhUp(rtaCAngle, bloc.state);
+        final ltaC = utils.isCurlhUp(ltaCAngle, bloc.state);
+
+        print('Angulo: ${rtaCAngle.toStringAsFixed(2)}');
+        print('Angulo: ${ltaCAngle.toStringAsFixed(2)}');
+        /*if (rtaP != null && ltaP != null) {
           if (rtaP == ExcersiceState.init && ltaP == ExcersiceState.init) {
             bloc.setExcersiceState(rtaP);
             bloc.setExcersiceState(ltaP);
           } else if (rtaP == ExcersiceState.complete &&
-              ltaP == ExcersiceState.complete) {
+              ltaP == ExcersiceState.complete && rtaC == ExcersiceState.neutral && ltaC == ExcersiceState.neutral ) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
           }
-        }else if(rtaC != null && ltaC != null){
+        }*/
+        
+        if(rtaC != null && ltaC != null){
           if (rtaC == ExcersiceState.init && ltaC == ExcersiceState.init) {
             bloc.setExcersiceState(rtaC);
             bloc.setExcersiceState(ltaC);
@@ -142,7 +137,9 @@ class _CameraViewState extends State<CameraView> {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
           }
-        }else if(rtaPr != null && ltaPr != null){
+        }
+        
+        /*if(rtaPr != null && ltaPr != null){
           if (rtaPr == ExcersiceState.init && ltaPr == ExcersiceState.init) {
             bloc.setExcersiceState(rtaPr);
             bloc.setExcersiceState(ltaPr);
@@ -151,7 +148,9 @@ class _CameraViewState extends State<CameraView> {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
           }
-        }else if(rtaS != null && ltaS != null){
+        }
+        
+        if(rtaS != null && ltaS != null){
           if (rtaS == ExcersiceState.init && ltaS == ExcersiceState.init) {
             bloc.setExcersiceState(rtaS);
             bloc.setExcersiceState(ltaS);
@@ -160,7 +159,7 @@ class _CameraViewState extends State<CameraView> {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
           }
-        }
+        }*/
 
       }
     }

@@ -38,7 +38,7 @@ double angle(PoseLandmark firstLandmark, PoseLandmark midLandmark,
 }
 
 ExcersiceState? isPushUp(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 60.0;
+  final umbralElBow = 70.0;
   final umbralElBowExt = 160.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElBowExt &&
