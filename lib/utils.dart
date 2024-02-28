@@ -79,3 +79,16 @@ ExcersiceState? isPresshUp(double angleElBow, ExcersiceState current) {
   }
 }
 
+ExcersiceState? isSquatDown(double angleElKnee, ExcersiceState current) {
+  final umbralElKnee = 75.0;
+  final umbralElKneeExt = 160.0;
+  if (current == ExcersiceState.neutral &&
+      angleElKnee > umbralElKneeExt &&
+      angleElKnee < 180.0) {
+    return ExcersiceState.init;
+  } else if (current == ExcersiceState.init &&
+      angleElKnee < umbralElKnee &&
+      angleElKnee > 40.0) {
+    return ExcersiceState.complete;
+  }
+}

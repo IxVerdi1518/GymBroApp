@@ -100,10 +100,10 @@ class _CameraViewState extends State<CameraView> {
         p6 = getPoseLandmark(PoseLandmarkType.leftWrist);
         p7 = getPoseLandmark(PoseLandmarkType.rightHip);
         p8 = getPoseLandmark(PoseLandmarkType.rightKnee);
-        p9 = getPoseLandmark(PoseLandmarkType.rightHeel);
+        p9 = getPoseLandmark(PoseLandmarkType.rightAnkle);
         p10 = getPoseLandmark(PoseLandmarkType.leftHip);
         p11 = getPoseLandmark(PoseLandmarkType.leftKnee);
-        p12 = getPoseLandmark(PoseLandmarkType.leftHeel);
+        p12 = getPoseLandmark(PoseLandmarkType.leftAnkle);
       }
 
       //verificar
@@ -112,12 +112,16 @@ class _CameraViewState extends State<CameraView> {
         final ltaAngle = utils.angle(p4!, p5!, p6!);
         final rtaTAngle = utils.angle(p2!, p1!, p7!);
         final ltaTAngle = utils.angle(p5!, p4!, p10!);
+        final rtSAngle = utils.angle(p7!, p8!, p9!);
+        final ltSAngle = utils.angle(p10!, p11!, p12!);
         final rtaP = utils.isPushUp(rtaAngle, bloc.state);
         final ltaP = utils.isPushUp(ltaAngle, bloc.state);
         final rtaC = utils.isCurlhUp(rtaAngle, bloc.state);
         final ltaC = utils.isCurlhUp(ltaAngle, bloc.state);
         final rtaPr = utils.isPresshUp(rtaTAngle, bloc.state);
         final ltaPr = utils.isPresshUp(ltaTAngle, bloc.state);
+        final rtaS = utils.isSquatDown(rtSAngle, bloc.state);
+        final ltaS = utils.isSquatDown(ltSAngle, bloc.state);
         print('Angulo: ${rtaAngle.toStringAsFixed(2)}');
         print('Angulo: ${ltaAngle.toStringAsFixed(2)}');
         if (rtaP != null && ltaP != null) {
@@ -144,6 +148,15 @@ class _CameraViewState extends State<CameraView> {
             bloc.setExcersiceState(ltaPr);
           } else if (rtaPr == ExcersiceState.complete &&
               ltaPr == ExcersiceState.complete) {
+            bloc.increment();
+            bloc.setExcersiceState(ExcersiceState.neutral);
+          }
+        }else if(rtaS != null && ltaS != null){
+          if (rtaS == ExcersiceState.init && ltaS == ExcersiceState.init) {
+            bloc.setExcersiceState(rtaS);
+            bloc.setExcersiceState(ltaS);
+          } else if (rtaS == ExcersiceState.complete &&
+              ltaS == ExcersiceState.complete) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
           }
