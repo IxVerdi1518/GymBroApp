@@ -117,16 +117,6 @@ class _CameraViewState extends State<CameraViewCurl> {
 
         print('Angulo: ${rtaCAngle.toStringAsFixed(2)}');
         print('Angulo: ${ltaCAngle.toStringAsFixed(2)}');
-        /*if (rtaP != null && ltaP != null) {
-          if (rtaP == ExcersiceState.init && ltaP == ExcersiceState.init) {
-            bloc.setExcersiceState(rtaP);
-            bloc.setExcersiceState(ltaP);
-          } else if (rtaP == ExcersiceState.complete &&
-              ltaP == ExcersiceState.complete && rtaC == ExcersiceState.neutral && ltaC == ExcersiceState.neutral ) {
-            bloc.increment();
-            bloc.setExcersiceState(ExcersiceState.neutral);
-          }
-        }*/
         
         if(rtaC != null && ltaC != null){
           if (rtaC == ExcersiceState.init && ltaC == ExcersiceState.init) {
@@ -136,33 +126,8 @@ class _CameraViewState extends State<CameraViewCurl> {
               ltaC == ExcersiceState.complete) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
-          }else{
-            bloc.setExcersiceState(ExcersiceState.incorrect);
           }
         }
-        
-        /*if(rtaPr != null && ltaPr != null){
-          if (rtaPr == ExcersiceState.init && ltaPr == ExcersiceState.init) {
-            bloc.setExcersiceState(rtaPr);
-            bloc.setExcersiceState(ltaPr);
-          } else if (rtaPr == ExcersiceState.complete &&
-              ltaPr == ExcersiceState.complete) {
-            bloc.increment();
-            bloc.setExcersiceState(ExcersiceState.neutral);
-          }
-        }
-        
-        if(rtaS != null && ltaS != null){
-          if (rtaS == ExcersiceState.init && ltaS == ExcersiceState.init) {
-            bloc.setExcersiceState(rtaS);
-            bloc.setExcersiceState(ltaS);
-          } else if (rtaS == ExcersiceState.complete &&
-              ltaS == ExcersiceState.complete) {
-            bloc.increment();
-            bloc.setExcersiceState(ExcersiceState.neutral);
-          }
-        }*/
-
       }
     }
     super.didUpdateWidget(oldWidget);
