@@ -9,6 +9,7 @@ import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:gymbroappv4/models/excersice_model.dart';
 import 'package:gymbroappv4/painters/pose_painter.dart';
 import 'package:gymbroappv4/utils.dart' as utils;
+import 'package:soundpool/soundpool.dart';
 
 class CameraViewCurl extends StatefulWidget {
   CameraViewCurl(
@@ -107,18 +108,25 @@ class _CameraViewState extends State<CameraViewCurl> {
       }
 
       //verificar
-      if (p1 != null && p2 != null && p3 != null && p4 != null && p5 != null && p6 != null) {
+      if (p1 != null &&
+          p2 != null &&
+          p3 != null &&
+          p4 != null &&
+          p5 != null &&
+          p6 != null) {
         final rtaCAngle = utils.angle(p1!, p2!, p3!);
         final ltaCAngle = utils.angle(p4!, p5!, p6!);
-
 
         final rtaC = utils.isCurlhUp(rtaCAngle, bloc.state);
         final ltaC = utils.isCurlhUp(ltaCAngle, bloc.state);
 
         print('Angulo: ${rtaCAngle.toStringAsFixed(2)}');
         print('Angulo: ${ltaCAngle.toStringAsFixed(2)}');
-        
-        if(rtaC != null && ltaC != null){
+
+        if (rtaC != null && ltaC != null) {
+          if (rtaC != ExcersiceState.init || ltaC != ExcersiceState.init) {
+            _playIncorrectSound();
+          }
           if (rtaC == ExcersiceState.init && ltaC == ExcersiceState.init) {
             bloc.setExcersiceState(rtaC);
             bloc.setExcersiceState(ltaC);
@@ -131,6 +139,17 @@ class _CameraViewState extends State<CameraViewCurl> {
       }
     }
     super.didUpdateWidget(oldWidget);
+  }
+
+  Future<void> _playIncorrectSound() async {
+    Soundpool pool = Soundpool(streamType: StreamType.notification);
+
+    int soundId = await rootBundle
+        .load("assets/639427__laurenponder__incorrect-chime.wav")
+        .then((ByteData soundData) {
+      return pool.load(soundData);
+    });
+    int streamId = await pool.play(soundId);
   }
 
   @override

@@ -13,7 +13,6 @@ class ExcersiceCounter extends Cubit<ExcersiceState>{
   int counter = 0;
 
   void setExcersiceState(ExcersiceState current){
-    _soundC();
     emit(current);
   }
 
