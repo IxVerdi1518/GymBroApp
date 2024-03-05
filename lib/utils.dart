@@ -5,7 +5,6 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:gymbroappv4/models/excersice_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:soundpool/soundpool.dart';
 
 Future<String> getAssetPath(String asset) async {
   final path = await getLocalPath(asset);
@@ -64,16 +63,6 @@ ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
       angleElBow > 40.0) {
     return ExcersiceState.complete;
   }
-}
-
-ExcersiceState? isCurlIncorrect(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 120.0;
-  final umbralElBowExt = 160.0;
-  if (current == ExcersiceState.neutral &&
-      angleElBow > umbralElBowExt &&
-      angleElBow < 180.0) {
-    return ExcersiceState.init;
-  } 
 }
 
 ExcersiceState? isPresshUp(double angleElBow, ExcersiceState current) {

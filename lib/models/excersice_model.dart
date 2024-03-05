@@ -5,8 +5,7 @@ import 'package:soundpool/soundpool.dart';
 enum ExcersiceState{
   neutral,
   init,
-  complete,
-  incorrect
+  complete
 }
 
 class ExcersiceCounter extends Cubit<ExcersiceState>{
@@ -27,11 +26,6 @@ class ExcersiceCounter extends Cubit<ExcersiceState>{
 
   void reset(){
     counter = 0;
-    emit(state);
-  }
-
-  void incorrectt(){
-    _soundC();
     emit(state);
   }
   
