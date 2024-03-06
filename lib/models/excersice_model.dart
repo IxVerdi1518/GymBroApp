@@ -30,7 +30,8 @@ class ExcersiceCounter extends Cubit<ExcersiceState>{
   }
 
   void defeat(){
-
+    _playIncorrectSound();
+    emit(state);
   }
   
   Future<void> _soundC() async {

@@ -38,21 +38,23 @@ double angle(PoseLandmark firstLandmark, PoseLandmark midLandmark,
 }
 
 ExcersiceState? isPushUp(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 80.0;
-  final umbralElBowExt = 160.0;
+  final umbralElBow = 75.0;
+  final umbralElBowExt = 150.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElBowExt &&
       angleElBow < 180.0) {
     return ExcersiceState.init;
   } else if (current == ExcersiceState.init &&
       angleElBow < umbralElBow &&
-      angleElBow > 40.0) {
+      angleElBow > 35.0) {
     return ExcersiceState.complete;
+  }else if (current == ExcersiceState.init && angleElBow > umbralElBow && angleElBow < 120.0){
+    return ExcersiceState.incorrect;
   }
 }
 
 ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 60.0;
+  final umbralElBow = 75.0;
   final umbralElBowExt = 160.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElBowExt &&
@@ -62,7 +64,7 @@ ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
       angleElBow < umbralElBow &&
       angleElBow > 40.0) {
     return ExcersiceState.complete;
-  }else if(current == ExcersiceState.init && angleElBow < umbralElBow && angleElBow>180.0){
+  }else if (current == ExcersiceState.init && angleElBow > umbralElBow && angleElBow < 120.0){
     return ExcersiceState.incorrect;
   }
 }

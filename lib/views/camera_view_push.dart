@@ -124,6 +124,9 @@ class _CameraViewState extends State<CameraViewPush> {
               ltaP == ExcersiceState.complete) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
+          }else if(rtaP == ExcersiceState.incorrect && ltaP == ExcersiceState.incorrect){
+            bloc.defeat();
+            bloc.setExcersiceState(ExcersiceState.neutral);
           }
         }
         

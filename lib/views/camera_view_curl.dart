@@ -131,6 +131,9 @@ class _CameraViewState extends State<CameraViewCurl> {
               ltaC == ExcersiceState.complete) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
+          }else if(rtaC == ExcersiceState.incorrect && ltaC == ExcersiceState.incorrect){
+            bloc.defeat();
+            bloc.setExcersiceState(ExcersiceState.neutral);
           }
         }
       }
