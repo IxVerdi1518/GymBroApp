@@ -117,27 +117,6 @@ class _CameraViewState extends State<CameraViewPress> {
 
         print('Angulo: ${rtaTAngle.toStringAsFixed(2)}');
         print('Angulo: ${ltaTAngle.toStringAsFixed(2)}');
-        /*if (rtaP != null && ltaP != null) {
-          if (rtaP == ExcersiceState.init && ltaP == ExcersiceState.init) {
-            bloc.setExcersiceState(rtaP);
-            bloc.setExcersiceState(ltaP);
-          } else if (rtaP == ExcersiceState.complete &&
-              ltaP == ExcersiceState.complete && rtaC == ExcersiceState.neutral && ltaC == ExcersiceState.neutral ) {
-            bloc.increment();
-            bloc.setExcersiceState(ExcersiceState.neutral);
-          }
-        }*/
-        
-        /*if(rtaC != null && ltaC != null){
-          if (rtaC == ExcersiceState.init && ltaC == ExcersiceState.init) {
-            bloc.setExcersiceState(rtaC);
-            bloc.setExcersiceState(ltaC);
-          } else if (rtaC == ExcersiceState.complete &&
-              ltaC == ExcersiceState.complete) {
-            bloc.increment();
-            bloc.setExcersiceState(ExcersiceState.neutral);
-          }
-        }*/
         
         if(rtaPr != null && ltaPr != null){
           if (rtaPr == ExcersiceState.init && ltaPr == ExcersiceState.init) {
@@ -147,20 +126,12 @@ class _CameraViewState extends State<CameraViewPress> {
               ltaPr == ExcersiceState.complete) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
+          }else if(rtaPr == ExcersiceState.incorrect && ltaPr == ExcersiceState.incorrect){
+            bloc.defeat();
+            bloc.setExcersiceState(ExcersiceState.neutral);
           }
         }
         
-        /*if(rtaS != null && ltaS != null){
-          if (rtaS == ExcersiceState.init && ltaS == ExcersiceState.init) {
-            bloc.setExcersiceState(rtaS);
-            bloc.setExcersiceState(ltaS);
-          } else if (rtaS == ExcersiceState.complete &&
-              ltaS == ExcersiceState.complete) {
-            bloc.increment();
-            bloc.setExcersiceState(ExcersiceState.neutral);
-          }
-        }*/
-
       }
     }
     super.didUpdateWidget(oldWidget);
