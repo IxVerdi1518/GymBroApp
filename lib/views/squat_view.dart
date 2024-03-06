@@ -17,11 +17,12 @@ class SquatView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
         backgroundColor: Color(0xffF5F5F5),
-        body: Container(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+       body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
                 Container(
                   alignment: Alignment.center,
                   width: size.width * 0.5,
@@ -64,7 +65,6 @@ class SquatView extends StatelessWidget {
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
-                Spacer(),
                 ElevatedButton(
                   style: raiseButtonStyle,
                   onPressed: () {
@@ -78,7 +78,10 @@ class SquatView extends StatelessWidget {
                  SizedBox(
                   height: size.height * 0.03,
                 )
-              ],
-            ))); 
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
