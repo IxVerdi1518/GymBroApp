@@ -124,9 +124,6 @@ class _CameraViewState extends State<CameraViewCurl> {
         print('Angulo: ${ltaCAngle.toStringAsFixed(2)}');
 
         if (rtaC != null && ltaC != null) {
-          if (rtaC != ExcersiceState.init || ltaC != ExcersiceState.init) {
-            _playIncorrectSound();
-          }
           if (rtaC == ExcersiceState.init && ltaC == ExcersiceState.init) {
             bloc.setExcersiceState(rtaC);
             bloc.setExcersiceState(ltaC);
@@ -141,16 +138,7 @@ class _CameraViewState extends State<CameraViewCurl> {
     super.didUpdateWidget(oldWidget);
   }
 
-  Future<void> _playIncorrectSound() async {
-    Soundpool pool = Soundpool(streamType: StreamType.notification);
-
-    int soundId = await rootBundle
-        .load("assets/639427__laurenponder__incorrect-chime.wav")
-        .then((ByteData soundData) {
-      return pool.load(soundData);
-    });
-    int streamId = await pool.play(soundId);
-  }
+  
 
   @override
   void dispose() {

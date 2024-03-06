@@ -62,6 +62,8 @@ ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
       angleElBow < umbralElBow &&
       angleElBow > 40.0) {
     return ExcersiceState.complete;
+  }else if(current == ExcersiceState.init && angleElBow < umbralElBow && angleElBow>180.0){
+    return ExcersiceState.incorrect;
   }
 }
 
