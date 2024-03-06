@@ -125,6 +125,9 @@ class _CameraViewState extends State<CameraViewSquat> {
               ltaS == ExcersiceState.complete) {
             bloc.increment();
             bloc.setExcersiceState(ExcersiceState.neutral);
+          }else if(rtaS == ExcersiceState.incorrect && ltaS == ExcersiceState.incorrect){
+            bloc.defeat();
+            bloc.setExcersiceState(ExcersiceState.neutral);
           }
         }
 
