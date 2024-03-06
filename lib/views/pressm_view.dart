@@ -3,7 +3,7 @@ import 'package:gymbroappv4/views/pose_detection_view_press.dart';
 
 
 class PressMView extends StatelessWidget {
-  const PressMView({super.key});
+  const PressMView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +18,19 @@ class PressMView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
         backgroundColor: Color(0xffF5F5F5),
-        body: Container(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+        body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
                 Container(
                   alignment: Alignment.center,
                   width: size.width * 0.5,
                   height: size.width * 0.5,
                   child:
-                      Image(image: AssetImage('assets/military-press.gif'),)
+                      Image(image: AssetImage('assets/military-press.gif'),
+                  ),
                 ),
                 const Text('Press militar!',
                     style: TextStyle(
@@ -71,7 +73,6 @@ class PressMView extends StatelessWidget {
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18.0, letterSpacing: -1.1)),
                 ),
-                Spacer(),
                 ElevatedButton(
                   style: raiseButtonStyle,
                   onPressed: () {
@@ -85,7 +86,10 @@ class PressMView extends StatelessWidget {
                  SizedBox(
                   height: size.height * 0.03,
                 )
-              ],
-            ))); 
+               ],
+          ),
+        ),
+      ),
+    );
   }
 }

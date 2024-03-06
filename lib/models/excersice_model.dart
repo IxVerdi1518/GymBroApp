@@ -5,7 +5,8 @@ import 'package:soundpool/soundpool.dart';
 enum ExcersiceState{
   neutral,
   init,
-  complete
+  complete,
+  incorrect
 }
 
 class ExcersiceCounter extends Cubit<ExcersiceState>{
@@ -18,7 +19,7 @@ class ExcersiceCounter extends Cubit<ExcersiceState>{
 
   void increment(){
     counter++;
-    _sound();
+    _soundC();
     emit(state);
     
   }
@@ -27,13 +28,27 @@ class ExcersiceCounter extends Cubit<ExcersiceState>{
     counter = 0;
     emit(state);
   }
+
+  void defeat(){
+    _playIncorrectSound();
+    emit(state);
+  }
   
-  Future<void> _sound() async {
+  Future<void> _soundC() async {
     Soundpool pool = Soundpool(streamType: StreamType.notification);
 
     int soundId = await rootBundle.load("assets/Message 2.wav").then((ByteData soundData) {
                   return pool.load(soundData);
                 });
+    int streamId = await pool.play(soundId);
+  }
+
+  Future<void> _playIncorrectSound() async {
+    Soundpool pool = Soundpool(streamType: StreamType.notification);
+
+    int soundId = await rootBundle.load("assets/Incorrect-chime.wav").then((ByteData soundData) {
+      return pool.load(soundData);
+    });
     int streamId = await pool.play(soundId);
   }
 }

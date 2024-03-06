@@ -38,21 +38,23 @@ double angle(PoseLandmark firstLandmark, PoseLandmark midLandmark,
 }
 
 ExcersiceState? isPushUp(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 70.0;
-  final umbralElBowExt = 160.0;
+  final umbralElBow = 75.0;
+  final umbralElBowExt = 150.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElBowExt &&
       angleElBow < 180.0) {
     return ExcersiceState.init;
   } else if (current == ExcersiceState.init &&
       angleElBow < umbralElBow &&
-      angleElBow > 40.0) {
+      angleElBow > 35.0) {
     return ExcersiceState.complete;
+  }else if (current == ExcersiceState.init && angleElBow > umbralElBow && angleElBow < 120.0){
+    return ExcersiceState.incorrect;
   }
 }
 
 ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
-  final umbralElBow = 60.0;
+  final umbralElBow = 75.0;
   final umbralElBowExt = 160.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElBowExt &&
@@ -60,13 +62,15 @@ ExcersiceState? isCurlhUp(double angleElBow, ExcersiceState current) {
     return ExcersiceState.init;
   } else if (current == ExcersiceState.init &&
       angleElBow < umbralElBow &&
-      angleElBow > 40.0) {
+      angleElBow > 35.0) {
     return ExcersiceState.complete;
+  }else if (current == ExcersiceState.init && angleElBow > umbralElBow && angleElBow < 120.0){
+    return ExcersiceState.incorrect;
   }
 }
 
 ExcersiceState? isPresshUp(double angleElBow, ExcersiceState current) {
-  final umbralElShoulder = 60.0;
+  final umbralElShoulder = 75.0;
   final umbralElShoulderExt = 160.0;
   if (current == ExcersiceState.neutral &&
       angleElBow > umbralElShoulderExt &&
@@ -74,13 +78,15 @@ ExcersiceState? isPresshUp(double angleElBow, ExcersiceState current) {
     return ExcersiceState.init;
   } else if (current == ExcersiceState.init &&
       angleElBow < umbralElShoulder &&
-      angleElBow > 40.0) {
+      angleElBow > 35.0) {
     return ExcersiceState.complete;
+  }else if (current == ExcersiceState.init && angleElBow > umbralElShoulder && angleElBow < 120.0){
+    return ExcersiceState.incorrect;
   }
 }
 
 ExcersiceState? isSquatDown(double angleElKnee, ExcersiceState current) {
-  final umbralElKnee = 75.0;
+  final umbralElKnee = 90.0;
   final umbralElKneeExt = 160.0;
   if (current == ExcersiceState.neutral &&
       angleElKnee > umbralElKneeExt &&
@@ -88,7 +94,9 @@ ExcersiceState? isSquatDown(double angleElKnee, ExcersiceState current) {
     return ExcersiceState.init;
   } else if (current == ExcersiceState.init &&
       angleElKnee < umbralElKnee &&
-      angleElKnee > 40.0) {
+      angleElKnee > 70.0) {
     return ExcersiceState.complete;
+  }else if (current == ExcersiceState.init && angleElKnee > umbralElKnee && angleElKnee < 120.0){
+    return ExcersiceState.incorrect;
   }
 }
